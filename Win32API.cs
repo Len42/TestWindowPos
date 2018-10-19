@@ -28,7 +28,7 @@ namespace org.lmp.TestWindowPos.Win32
 			this.Left = pt.X;
 			this.Top = pt.Y;
 			this.Right = pt.X + size.Width;
-			this.Bottom = pt.Y = size.Height;
+			this.Bottom = pt.Y + size.Height;
 		}
 	}
 
@@ -64,12 +64,18 @@ namespace org.lmp.TestWindowPos.Win32
 		public RECT normalPosition;
 	}
 
-	public static class Funcs
+	public static class Win32Const
+	{
+		public const int SW_SHOWNORMAL = 1;
+		public const int SW_SHOWMINIMIZED = 2;
+	}
+
+	public static class Win32Func
 	{
 		[DllImport("user32.dll")]
-		private static extern bool SetWindowPlacement(IntPtr hWnd, [In] ref WINDOWPLACEMENT lpwndpl);
+		public static extern bool SetWindowPlacement(IntPtr hWnd, [In] ref WINDOWPLACEMENT lpwndpl);
 
 		[DllImport("user32.dll")]
-		private static extern bool GetWindowPlacement(IntPtr hWnd, out WINDOWPLACEMENT lpwndpl);
+		public static extern bool GetWindowPlacement(IntPtr hWnd, out WINDOWPLACEMENT lpwndpl);
 	}
 }

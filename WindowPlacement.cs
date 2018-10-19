@@ -9,22 +9,12 @@ using org.lmp.TestWindowPos.Properties;
 
 namespace org.lmp.TestWindowPos
 {
-	public class WindowPlacement
+	public static class WindowPlacement
 	{
-		public void SaveWindow(Control window)
+		public static void SaveWindow(Control window)
 		{
-			// TODO
-		}
-
-		public void RestoreWindow(Control window)
-		{
-			// TODO
-		}
-
-		private WINDOWPLACEMENT windowPlacement;
-
-		private void Save()
-		{
+			WINDOWPLACEMENT windowPlacement;
+			Win32Func.GetWindowPlacement(window.Handle, out windowPlacement);
 			Settings.Default.WindowPlacementFlags = windowPlacement.flags;
 			Settings.Default.WindowPlacementShowCmd = windowPlacement.showCmd;
 			Settings.Default.WindowPlacementMin = POINTToPoint(windowPlacement.minPosition);
@@ -34,13 +24,20 @@ namespace org.lmp.TestWindowPos
 			Settings.Default.Save();
 		}
 
-		private void Load()
+		public static void RestoreWindow(Control window)
 		{
-			windowPlacement.flags = Settings.Default.WindowPlacementFlags;
-			windowPlacement.showCmd = Settings.Default.WindowPlacementShowCmd;
-			windowPlacement.minPosition = new POINT(Settings.Default.WindowPlacementMin);
-			windowPlacement.maxPosition = new POINT(Settings.Default.WindowPlacementMax);
-			windowPlacement.normalPosition = new RECT(Settings.Default.WindowPlacementNormalPoint, Settings.Default.WindowPlacementNormalSize);
+			if (!Settings.Default.WindowPlacementNormalSize.IsEmpty) {
+				WINDOWPLACEMENT windowPlacement;
+				windowPlacement.length = System.Runtime.InteropServices.Marshal.SizeOf(typeof(WINDOWPLACEMENT));
+				windowPlacement.flags = Settings.Default.WindowPlacementFlags;
+				windowPlacement.showCmd = Settings.Default.WindowPlacementShowCmd;
+				windowPlacement.minPosition = new POINT(Settings.Default.WindowPlacementMin);
+				windowPlacement.maxPosition = new POINT(Settings.Default.WindowPlacementMax);
+				windowPlacement.normalPosition = new RECT(Settings.Default.WindowPlacementNormalPoint, Settings.Default.WindowPlacementNormalSize);
+				if (windowPlacement.showCmd == Win32Const.SW_SHOWMINIMIZED)
+					windowPlacement.showCmd = Win32Const.SW_SHOWNORMAL;
+				Win32Func.SetWindowPlacement(window.Handle, ref windowPlacement);
+			}
 		}
 
 		private static Point POINTToPoint(POINT pt)
