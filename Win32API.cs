@@ -22,6 +22,14 @@ namespace org.lmp.TestWindowPos.Win32
 			this.Right = right;
 			this.Bottom = bottom;
 		}
+
+		public RECT(System.Drawing.Point pt,System.Drawing.Size size)
+		{
+			this.Left = pt.X;
+			this.Top = pt.Y;
+			this.Right = pt.X + size.Width;
+			this.Bottom = pt.Y = size.Height;
+		}
 	}
 
 	[Serializable]
@@ -35,6 +43,12 @@ namespace org.lmp.TestWindowPos.Win32
 		{
 			this.X = x;
 			this.Y = y;
+		}
+
+		public POINT(System.Drawing.Point pt)
+		{
+			this.X = pt.X;
+			this.Y = pt.Y;
 		}
 	}
 

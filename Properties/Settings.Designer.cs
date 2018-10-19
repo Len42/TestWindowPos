@@ -22,5 +22,77 @@ namespace org.lmp.TestWindowPos.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WindowPlacementNormalPoint {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowPlacementNormalPoint"]));
+            }
+            set {
+                this["WindowPlacementNormalPoint"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size WindowPlacementNormalSize {
+            get {
+                return ((global::System.Drawing.Size)(this["WindowPlacementNormalSize"]));
+            }
+            set {
+                this["WindowPlacementNormalSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WindowPlacementMin {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowPlacementMin"]));
+            }
+            set {
+                this["WindowPlacementMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WindowPlacementMax {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowPlacementMax"]));
+            }
+            set {
+                this["WindowPlacementMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WindowPlacementFlags {
+            get {
+                return ((int)(this["WindowPlacementFlags"]));
+            }
+            set {
+                this["WindowPlacementFlags"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WindowPlacementShowCmd {
+            get {
+                return ((int)(this["WindowPlacementShowCmd"]));
+            }
+            set {
+                this["WindowPlacementShowCmd"] = value;
+            }
+        }
     }
 }
