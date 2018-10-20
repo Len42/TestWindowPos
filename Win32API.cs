@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
+/// <summary>
+/// C# definitions for Win32 structs, constants and functions
+/// </summary>
 namespace org.lmp.TestWindowPos.Win32
 {
 	[Serializable]

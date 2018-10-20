@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TestWindowPos")]
-[assembly: AssemblyCopyright("Copyright ©  2018 Len Popp")]
+[assembly: AssemblyCopyright("Copyright © 2018 Len Popp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

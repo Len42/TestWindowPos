@@ -6,6 +6,9 @@ using org.lmp.TestWindowPos.Properties;
 
 namespace org.lmp.TestWindowPos
 {
+	/// <summary>
+	/// Save a window's position and restore it the next time the application is run
+	/// </summary>
 	public static class WindowPlacement
 	{
 		public static void SaveWindow(Control window)
